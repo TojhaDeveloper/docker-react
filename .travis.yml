@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t tuheenojha/react-docker -f Dockerfile.dev .
+
+
+script:
+  - docker run tuheenojha/react-docker npm run start test -- --coverage
